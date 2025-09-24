@@ -4,12 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Birthday Surprise</title>
-    <script>
-        // Automatically redirect to birthdaypage.html when someone visits the main URL
-        window.location.href = "birthdaypage.html";
-    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffb7c5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        h1 {
+            color: #d63384;
+        }
+        a {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <p>Redirecting to birthday surprise...</p>
+    <div class="container">
+        <h1>🎉 Birthday Surprise! 🎉</h1>
+        <p>Welcome! Click below to start the birthday experience:</p>
+        <a href="birthday.html">Start Birthday Celebration</a>
+    </div>
 </body>
 </html>
