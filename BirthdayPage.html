@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Hub</title>
+    <script>
+        // Automatically redirect to birthday.html when page loads
+        window.location.href = "birthday.html";
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffb7c5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #d63384;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .page-link {
+            background: linear-gradient(135deg, #e74c3c, #f39c12);
+            color: white;
+            text-decoration: none;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .page-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .page-link.birthday {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+
+        .page-link.clicks {
+            background: linear-gradient(135deg, #e91e63, #ad1457);
+        }
+
+        .page-link.pictures {
+            background: linear-gradient(135deg, #9c27b0, #673ab7);
+        }
+
+        .page-link.message {
+            background: linear-gradient(135deg, #3f51b5, #2196f3);
+        }
+
+        .icon {
+            font-size: 2em;
+        }
+
+        .description {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Happy Birthday 🎉</h1>
+        <p>Choose your birthday experience:</p>
+        
+        <div class="link-grid">
+            <a href="birthday.html" class="page-link birthday">
+                <span class="icon">🎂</span>
+                <span>Birthday Welcome</span>
+                <span class="description">Start the celebration</span>
+            </a>
+            
+            <a href="clicks.html" class="page-link clicks">
+                <span class="icon">❤️</span>
+                <span>Heart Game</span>
+                <span class="description">Click for love</span>
+            </a>
+            
+            <a href="pictures.html" class="page-link pictures">
+                <span class="icon">📸</span>
+                <span>Photo Gallery</span>
+                <span class="description">Beautiful memories</span>
+            </a>
+            
+            <a href="message.html" class="page-link message">
+                <span class="icon">💌</span>
+                <span>Birthday Message</span>
+                <span class="description">Special words</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

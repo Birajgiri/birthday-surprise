@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Message</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffb7c5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #d63384;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .heart {
+            font-size: 4em;
+            color: #e74c3c;
+            cursor: pointer;
+            transition: transform 0.3s ease, font-size 0.3s ease;
+            display: inline-block;
+            user-select: none;
+        }
+
+        .heart:hover {
+            transform: scale(1.1);
+        }
+
+        .click-counter {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .message {
+            font-size: 3em;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-top: 20px;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.5s ease;
+        }
+
+        .message.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .burst-effect {
+            animation: burst 0.6s ease-out;
+        }
+
+        @keyframes burst {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(0);
+            }
+        }
+
+
+
+        .back-button {
+            background-color: #6c757d;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9em;
+            margin-top: 30px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #5a6268;
+        }
+
+        .continue-button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 1em;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-top: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .continue-button.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .continue-button:hover {
+            transform: scale(1.05);
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💕 Click the Heart 💕</h1>
+        <div class="heart" id="heart" onclick="clickHeart()">❤️</div>
+        <div class="click-counter">
+            23 clicks for a surprise (<span id="clickCount">0</span> clicks)
+        </div>
+        <div class="message" id="message">I love you!! 💖</div>
+        <a href="message.html" class="continue-button" id="continueBtn">Next</a>
+    </div>
+
+    <script>
+        let clicks = 0;
+        const heart = document.getElementById('heart');
+        const clickCount = document.getElementById('clickCount');
+        const message = document.getElementById('message');
+        let baseSize = 4;
+
+        function clickHeart() {
+            if (clicks < 23) {
+                clicks++;
+                clickCount.textContent = clicks;
+                
+                // Expand the heart
+                baseSize += 0.2;
+                heart.style.fontSize = baseSize + 'em';
+                
+                // Add a little bounce effect
+                heart.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    heart.style.transform = 'scale(1)';
+                }, 150);
+                
+                // Check if we've reached 23 clicks
+                if (clicks === 23) {
+                    burstHeart();
+                }
+            }
+        }
+
+        function burstHeart() {
+            // Add burst animation to heart
+            heart.classList.add('burst-effect');
+            
+            // Show the message after burst animation
+            setTimeout(() => {
+                heart.style.display = 'none';
+                document.querySelector('.click-counter').style.display = 'none';
+                message.classList.add('show');
+                
+                // Show continue button after message appears
+                setTimeout(() => {
+                    document.getElementById('continueBtn').classList.add('show');
+                }, 500);
+            }, 600);
+        }
+    </script>
+</body>
+</html>
